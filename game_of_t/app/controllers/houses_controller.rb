@@ -14,8 +14,12 @@ class HousesController < ApplicationController
 
   def create
     @house = House.new(house_params)
-    @house.save
-    render :new
+      if @house.save
+        flash[:notice] = "A house was successfully created."
+        redirect_to @house
+      else
+        render :new
+      end
   end
 
   def update
@@ -30,8 +34,10 @@ class HousesController < ApplicationController
 
   def destroy
     @house = House.find(params[:id])
-    @house.destroy
-    redirect_to @house
+      if @house.destroy
+      flash[:alert] = "The house #{@house.name} has been deleted"
+      redirect_to @house
+    end
   end
 
 
