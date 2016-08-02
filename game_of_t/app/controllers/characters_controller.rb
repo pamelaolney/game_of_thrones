@@ -12,8 +12,12 @@ class CharactersController < ApplicationController
 
   def create
     @house = House.find(params[:house_id])
-    @character = @house.characters.create!(character_params)
+    if @character = @house.characters.create!(character_params)
+      flash[:notice] = "New character #{@house.character.name} was created."
     redirect_to @house
+    else
+      render :new
+  end
   end
 
 
