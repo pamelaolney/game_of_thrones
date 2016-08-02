@@ -1,1 +1,4 @@
-<h1>Haayyy</h1>
+
+<% @houses.each do |house| %>
+  <p><%= link_to house.name, house_path(house) %></p>
+<% end %>
