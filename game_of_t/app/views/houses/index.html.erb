@@ -1,3 +1,4 @@
+<p><%= link_to "(+) Add House", new_house_path(@house) %></p>
 
 <% @houses.each do |house| %>
   <p><%= link_to house.name, house_path(house) %></p>

@@ -7,6 +7,17 @@ class HousesController < ApplicationController
   def show
     @house = House.find(params[:id])
   end
+
+  def new
+    @house = House.new
+  end
+
+  def create
+    @house = House.new(house_params)
+    @house.save
+    render :new
+  end
+
   def update
     @house = House.find(params[:id])
     @house.update(house_params)
@@ -16,6 +27,13 @@ class HousesController < ApplicationController
   def edit
     @house = House.find(params[:id])
   end
+
+  def destroy
+    @house = House.find(params[:id])
+    @house.destroy
+    redirect_to @house
+  end
+
 
   private
 

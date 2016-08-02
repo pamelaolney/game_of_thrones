@@ -2,5 +2,10 @@
   <%= image_tag @house.image_url %>
   <p><%= @house.state %></p>
 
-<br>
+<p><%= link_to "(+)Insert New Character", new_house_character_path(@house) %></p>
+
+<% @house.characters.each do |character| %>
+  <p><%= link_to character.name, house_character_path(@house, character) %></p>
+<% end %>
+
 <p><%= link_to "Edit House", edit_house_path(@house) %></p>

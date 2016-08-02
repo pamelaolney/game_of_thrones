@@ -1,5 +1,7 @@
+<p><%= link_to '(+) Add New Character', new_character_path(@character) %></p>
+
 <% @characters.each do |character| %>
-  <h2><%= link_to character.name, character_path(character) %></h2>
+  <p><%= link_to character.name, character_path(character) %></p>
 
 
 <% end %>
